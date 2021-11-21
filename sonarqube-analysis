@@ -30,9 +30,11 @@ stages{
         }
     }
    stage('SonarQube Analysis') {
-        withSonarQubeEnv('SonarQube') { 
+        steps{
+          withSonarQubeEnv('SonarQube') { 
           sh "/opt/sonarqube/bin/mvn sonar:sonar"
         }
+    }
     }
     stage("build"){
         steps{
